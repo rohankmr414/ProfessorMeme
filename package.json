@@ -1,0 +1,24 @@
+{
+  "name": "professormeme",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "discord.js": "^12.0.2",
+    "dotenv": "^8.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rohankmr414/ProfessorMeme.git"
+  },
+  "author": "Rohan Kumar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rohankmr414/ProfessorMeme/issues"
+  },
+  "homepage": "https://github.com/rohankmr414/ProfessorMeme#readme"
+}
