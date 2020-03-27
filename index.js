@@ -9,6 +9,7 @@ const TOKEN = process.env.TOKEN;
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
 });
+
 client.on('message', msg => {
     if (msg.author.bot) return;
 
@@ -17,5 +18,20 @@ client.on('message', msg => {
     if (msg.content.startsWith(`${prefix}ping`)) {
         msg.reply('Pong!');
     }
+
+    if (msg.content.startsWith(`${prefix}meme`)) {
+        const embed = new Discord.MessageEmbed()
+            .setTitle('An interesting title')
+            .setColor(0xff0000)
+            .setDescription('The description')
+        msg.channel.send(embed);
+    }
+
+    if (msg.content.startsWith(`${prefix}start`)) {
+        if (!msg.member.hasPermission('ADMINISTRATOR')) {
+            msg.reply('You do not have permissions for using this command.')
+        }
+    }
 });
+
 client.login(TOKEN);
