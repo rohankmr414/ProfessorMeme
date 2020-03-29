@@ -1,10 +1,10 @@
 require('dotenv').config();
 const Discord = require('discord.js');
 const client = new Discord.Client();
-
 const prefix = "!"
-
 const TOKEN = process.env.TOKEN;
+
+var getRedditPost = require('./makeRequests');
 
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
@@ -28,9 +28,13 @@ client.on('message', msg => {
     }
 
     if (msg.content.startsWith(`${prefix}start`)) {
-        if (!msg.member.hasPermission('ADMINISTRATOR')) {
+        if (!msg.member.hasPermission('MANAGE_GUILD')) {
             msg.reply('You do not have permissions for using this command.')
+            break
         }
+
+        post =  getRedditPost()
+
     }
 });
 
