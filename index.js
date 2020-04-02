@@ -144,7 +144,7 @@ client.on('message', async message => {
                         .setImage(post.data.url)
                         .setFooter(`⬆️ ${post.data.ups} - 💬 ${post.data.num_comments} | ${post.data.subreddit}`)
                     message.channel.send(embed)
-                }, args * 1000)
+                }, args * 60000)
             }
 
             else {
