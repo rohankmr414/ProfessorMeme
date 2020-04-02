@@ -124,6 +124,17 @@ client.on('message', async message => {
         else if (message.member.hasPermission('MANAGE_GUILD')) {
 
             if (args % 5 == 0) {
+
+                message.channel.send(`I will now send memes every ${args} minutes in this channel.`)
+                fpost = await makeRequest()
+                const fembed = new Discord.MessageEmbed()
+                    .setTitle(fpost.data.title)
+                    .setURL(`https://www.reddit.com${fpost.data.permalink}`)
+                    .setColor('#40b3a2')
+                    .setImage(fpost.data.url)
+                    .setFooter(`⬆️ ${fpost.data.ups} - 💬 ${fpost.data.num_comments} | ${fpost.data.subreddit}`)
+                message.channel.send(fembed);
+
                 interval = setInterval(async () => {
                     post = await makeRequest()
                     const embed = new Discord.MessageEmbed()
