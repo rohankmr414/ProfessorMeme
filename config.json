@@ -1,3 +1,4 @@
 {
-  "prefix": "!"
+  "token": "BOT TOKEN HERE",
+  "prefix": "pm "
 }
