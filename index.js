@@ -8,7 +8,7 @@ require('./getRedditPost')()
 
 client.on("ready", () => {
     console.log(`Logged in as ${client.user.tag}!`);
-    client.user.setActivity(`Listening to &&help.`)
+    client.user.setStatus(`Listening to &&help.`)
 });
 
 client.on('guildCreate', (guild) => { // If the Bot was added on a server, proceed
@@ -35,6 +35,15 @@ client.on('message', async message => {
     if (message.author.bot) return;
 
     if (!message.content.startsWith(prefixes[message.guild.id].prefix)) return;
+
+    if (!prefixes[message.guild.id]) { // If the guild's id is not on the prefixes File, proceed
+        prefixes[message.guild.id] = {
+            prefix: config.prefix
+        }
+    }
+    fs.writeFile('./prefixes.json', JSON.stringify(prefixes), (err) => {
+        if (err) console.log(err)
+    })
 
     const args = message.content.slice(prefixes[message.guild.id].prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
