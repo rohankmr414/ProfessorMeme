@@ -34,18 +34,19 @@ client.on('guildDelete', (guild) => { // If the Bot was removed on a server, pro
 client.on('message', async message => {
     if (message.author.bot) return;
 
-    if (!message.content.startsWith(prefixes[message.guild.id].prefix)) return;
+    let prefixes = JSON.parse(fs.readFileSync('./prefixes.json', 'utf8'));
 
     if (!prefixes[message.guild.id]) { // If the guild's id is not on the prefixes File, proceed
         prefixes[message.guild.id] = {
             prefix: config.prefix
         }
     }
-    fs.writeFile('./prefixes.json', JSON.stringify(prefixes), (err) => {
-        if (err) console.log(err)
-    })
+    
+    let prefix = prefixes[message.guild.id].prefix;
 
-    const args = message.content.slice(prefixes[message.guild.id].prefix.length).trim().split(/ +/g);
+    if (!message.content.startsWith(prefix)) return;
+    
+    const args = message.content.slice(prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
 
     if (command === 'ping') {
@@ -58,14 +59,14 @@ client.on('message', async message => {
             const hEmbed = new Discord.MessageEmbed()
                 .setColor('#D97694')
                 .setTitle('ProfessorMeme Command List')
-                .setDescription(`${prefixes[message.guild.id].prefix}help prefix\n${prefixes[message.guild.id].prefix}help meme\n${prefixes[message.guild.id].prefix}help automeme`)
+                .setDescription(`${prefixes[message.guild.id].prefix}help prefix\n${prefix}help meme\n${prefix}help automeme`)
             message.channel.send(hEmbed);
         }
 
         if (args[0] === 'meme') {
             const memehelp = new Discord.MessageEmbed()
                 .setColor('#D97694')
-                .setTitle(`${prefixes[message.guild.id].prefix}meme`)
+                .setTitle(`${prefix}meme`)
                 .setDescription('Shows a funny meme from reddit.')
             message.channel.send(memehelp);
         }
@@ -74,15 +75,15 @@ client.on('message', async message => {
             const amhelp = new Discord.MessageEmbed()
                 .setColor('#D97694')
                 .setTitle(`${prefixes[message.guild.id].prefix}automeme`)
-                .setDescription(`Starts showing memes at a given interval of time.\nUsage: ${prefixes[message.guild.id].prefix}automeme <interval duration in minutes>`)
+                .setDescription(`Starts showing memes at a given interval of time.\nUsage: ${prefix}automeme <interval duration in minutes>`)
             message.channel.send(amhelp)
         }
 
         if (args[0] === 'prefix') {
             const prefixhelp = new Discord.MessageEmbed()
                 .setColor('#D97694')
-                .setTitle(`${prefixes[message.guild.id].prefix}prefix`)
-                .setDescription(`Changes the prefix of the bot to the desired one.\nUsage: ${prefixes[message.guild.id].prefix}prefix <desired prefix here>`)
+                .setTitle(`${prefix}prefix`)
+                .setDescription(`Changes the prefix of the bot to the desired one.\nUsage: ${prefix}prefix <desired prefix here>`)
             message.channel.send(prefixhelp)
         }
     }
@@ -92,7 +93,7 @@ client.on('message', async message => {
             message.reply('You do not have permissions for using this command.')
         }
 
-        if (!args[0] || args[0 == 'help']) return message.channel.send(`Usage: ${prefixes[message.guild.id].prefix}prefix <desired prefix here>`);
+        if (!args[0] || args[0 == 'help']) return message.channel.send(`Usage: ${prefix}prefix <desired prefix here>`);
 
         prefixes[message.guild.id].prefix = args[0];
 
@@ -125,7 +126,7 @@ client.on('message', async message => {
             message.reply('You do not have permissions for using this command.')
         }
 
-        else if (!args[0]) return message.channel.send(`Usage: ${prefixes[message.guild.id].prefix}automeme <interval duration in minutes>.`)
+        else if (!args[0]) return message.channel.send(`Usage: ${prefix}automeme <interval duration in minutes>.`)
 
         else if (message.member.hasPermission('MANAGE_GUILD')) {
 
