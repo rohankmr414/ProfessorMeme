@@ -48,9 +48,7 @@ client.on('message', async message => {
             const hEmbed = new Discord.MessageEmbed()
                 .setColor('#D97694')
                 .setTitle('ProfessorMeme Command List')
-                .setDescription(`${prefixes[message.guild.id].prefix}help prefix
-            ${prefixes[message.guild.id].prefix}help meme
-            ${prefixes[message.guild.id].prefix}help automeme`)
+                .setDescription(`${prefixes[message.guild.id].prefix}help prefix\n${prefixes[message.guild.id].prefix}help meme\n${prefixes[message.guild.id].prefix}help automeme`)
             message.channel.send(hEmbed);
         }
 
@@ -66,8 +64,7 @@ client.on('message', async message => {
             const amhelp = new Discord.MessageEmbed()
                 .setColor('#D97694')
                 .setTitle(`${prefixes[message.guild.id].prefix}automeme`)
-                .setDescription(`Starts showing memes at a given interval of time.
-            Usage: ${prefixes[message.guild.id].prefix}automeme <interval duration in minutes>`)
+                .setDescription(`Starts showing memes at a given interval of time.\nUsage: ${prefixes[message.guild.id].prefix}automeme <interval duration in minutes>`)
             message.channel.send(amhelp)
         }
 
@@ -75,8 +72,7 @@ client.on('message', async message => {
             const prefixhelp = new Discord.MessageEmbed()
                 .setColor('#D97694')
                 .setTitle(`${prefixes[message.guild.id].prefix}prefix`)
-                .setDescription(`Changes the prefix of the bot to the desired one.
-            Usage: ${prefixes[message.guild.id].prefix}prefix <desired prefix here>`)
+                .setDescription(`Changes the prefix of the bot to the desired one.\nUsage: ${prefixes[message.guild.id].prefix}prefix <desired prefix here>`)
             message.channel.send(prefixhelp)
         }
     }
