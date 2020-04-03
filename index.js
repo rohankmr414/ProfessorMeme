@@ -8,7 +8,7 @@ require('./getRedditPost')()
 
 client.on("ready", () => {
     console.log(`Logged in as ${client.user.tag}!`);
-    client.user.setStatus(`Listening to &&help.`)
+    client.user.setActivity('&&help' ,{ type : 'LISTENING' })
 });
 
 client.on('guildCreate', (guild) => { // If the Bot was added on a server, proceed
