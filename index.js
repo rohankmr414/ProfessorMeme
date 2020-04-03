@@ -3,7 +3,7 @@ const client = new Discord.Client();
 const fs = require('fs');
 var config = require('./config.json')
 var prefixes = require('./prefixes.json')
-const TOKEN = config.token;
+const TOKEN = process.env.TOKEN;
 require('./getRedditPost')()
 
 client.on("ready", () => {
