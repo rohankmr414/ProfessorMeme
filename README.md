@@ -4,11 +4,11 @@ A simple discord bot which shows memes from reddit at a given interval of time.
 <br/>
 
 ## Commands
-* `pm help` : Shows various commands and their uses.
-* `pm prefix <custom prefix here>` : Changes the prefix for the server.
-* `pm meme` : Shows a funny meme from reddit.
-* `pm automeme <time interval in minutes>` : Starts sending memes at a given interval.
-* `pm stop` : Stops the working of automeme command.
+* `&&help` : Shows various commands and their uses.
+* `&&prefix <custom prefix here>` : Changes the prefix for the server.
+* `&&meme` : Shows a funny meme from reddit.
+* `&&automeme <time interval in minutes>` : Starts sending memes at a given interval.
+* `&&stop` : Stops the working of automeme command.
 
 ---
 You can add this bot to your server using [this](https://discordapp.com/api/oauth2/authorize?client_id=691983615596429324&permissions=8&scope=bot) invite link.
