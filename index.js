@@ -16,7 +16,7 @@ client.on('guildCreate', (guild) => { // If the Bot was added on a server, proce
             prefix: config.prefix
         }
     }
-    fs.writeFile('.prefixes.json', JSON.stringify(prefixes), (err) => {
+    fs.writeFile('./prefixes.json', JSON.stringify(prefixes), (err) => {
         if (err) console.log(err)
     })
 });
