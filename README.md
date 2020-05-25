@@ -11,7 +11,7 @@ A simple discord bot which shows memes from reddit at a given interval of time.
 * `&&stop` : Stops the working of automeme command.
 
 ---
-You can add this bot to your server using [this](https://discordapp.com/api/oauth2/authorize?client_id=691983615596429324&permissions=8&scope=bot) invite link.
+You can add this bot to your server using [this](https://discord.com/oauth2/authorize?client_id=691983615596429324&permissions=781504&scope=bot) invite link.
 
 [![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://forthebadge.com)
 
