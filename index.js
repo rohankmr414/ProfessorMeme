@@ -209,7 +209,8 @@ client.on("message", async (message) => {
       slang = await insult();
       message.reply(slang);
     } else {
-      message.channel.send(`@${user.username}#${user.tag}, ${slang}`)
+      slang = await insult();
+      message.channel.send(`@${user.username}#${user.tag}, ${slang}`);
     }
   }
 });
