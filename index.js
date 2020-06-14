@@ -210,7 +210,7 @@ client.on("message", async (message) => {
       message.reply(slang);
     } else {
       slang = await insult();
-      message.channel.send(`@${user.mention}, ${slang}`);
+      message.channel.send(`<@${user}>, ${slang}`);
     }
   }
 });
